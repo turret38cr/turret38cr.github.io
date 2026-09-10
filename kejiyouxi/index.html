@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>客机游戏-民航飞行模拟与客机驾驶游戏专题指南</title>
+<meta name="description" content="客机游戏专题：介绍民航客机飞行模拟、客机驾驶、航线运营等游戏类型，梳理玩法要点、上手方法、设备要求与常见问题，帮助玩家找到适合自己的客机游戏。">
+<meta name="keywords" content="客机游戏,飞行模拟,客机驾驶游戏,民航模拟,航线运营游戏,飞行模拟器">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --sky-deep:#0b2545;
+    --sky-mid:#134074;
+    --sky-blue:#1d6fb8;
+    --sky-light:#e8f1f9;
+    --line:#d3e0ee;
+    --ink:#1b2733;
+    --ink-soft:#4b5c6b;
+    --amber:#f2a33c;
+    --white:#ffffff;
+    --radius:10px;
+    --shadow:0 6px 20px rgba(11,37,69,.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:var(--sky-blue);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img{max-width:100%;}
+  .wrap{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  /* ---------- 顶部 ---------- */
+  .topbar{
+    background:var(--sky-deep);
+    color:#c9dcee;
+    font-size:13px;
+  }
+  .topbar .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:38px;
+    flex-wrap:wrap;
+  }
+  .topbar span{letter-spacing:.5px;}
+  .topbar nav a{color:#c9dcee;margin-left:16px;}
+  .topbar nav a:hover{color:#fff;text-decoration:none;}
+
+  header.site-head{
+    background:linear-gradient(135deg,#0b2545 0%,#134074 55%,#1d6fb8 100%);
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  header.site-head::after{
+    content:"";
+    position:absolute;
+    right:-120px;
+    top:-90px;
+    width:420px;
+    height:420px;
+    background:radial-gradient(circle,rgba(255,255,255,.14),transparent 65%);
+    border-radius:50%;
+  }
+  .head-inner{
+    position:relative;
+    z-index:2;
+    padding:26px 0 34px;
+  }
+  .brand-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand-mark{
+    width:46px;
+    height:46px;
+    border-radius:12px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    flex:0 0 auto;
+  }
+  .brand-text b{
+    display:block;
+    font-size:20px;
+    letter-spacing:1px;
+  }
+  .brand-text small{
+    color:#bcd6ee;
+    font-size:12.5px;
+    letter-spacing:.6px;
+  }
+  .head-search{
+    display:flex;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;
+    overflow:hidden;
+  }
+  .head-search input{
+    border:0;
+    background:transparent;
+    color:#fff;
+    padding:9px 16px;
+    font-size:14px;
+    outline:none;
+    width:210px;
+  }
+  .head-search input::placeholder{color:#b9d2e9;}
+  .head-search button{
+    border:0;
+    background:var(--amber);
+    color:#3a2400;
+    font-weight:700;
+    padding:0 18px;
+    cursor:pointer;
+    font-size:14px;
+  }
+  .head-search button:hover{background:#ffb954;}
+
+  nav.mainnav{
+    margin-top:22px;
+    border-top:1px solid rgba(255,255,255,.18);
+    padding-top:14px;
+  }
+  nav.mainnav ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 6px;
+  }
+  nav.mainnav a{
+    display:block;
+    color:#e3eefb;
+    font-size:14.5px;
+    padding:7px 15px;
+    border-radius:999px;
+    transition:.2s;
+  }
+  nav.mainnav a:hover,nav.mainnav a.active{
+    background:rgba(255,255,255,.18);
+    color:#fff;
+    text-decoration:none;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:38px 0 10px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.35fr 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  .hero h1{
+    font-size:31px;
+    line-height:1.4;
+    margin:0 0 14px;
+    letter-spacing:.5px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:#8fc7f5;
+  }
+  .hero p.lead{
+    color:#d5e6f7;
+    font-size:15.5px;
+    margin:0 0 20px;
+  }
+  .hero-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .hero-tags span{
+    font-size:13px;
+    padding:5px 13px;
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.22);
+    color:#dcebf9;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:11px 22px;
+    border-radius:8px;
+    font-size:14.5px;
+    font-weight:600;
+    transition:.2s;
+  }
+  .btn-primary{background:var(--amber);color:#3a2400;}
+  .btn-primary:hover{background:#ffb954;text-decoration:none;}
+  .btn-ghost{border:1px solid rgba(255,255,255,.5);color:#fff;}
+  .btn-ghost:hover{background:rgba(255,255,255,.14);text-decoration:none;}
+
+  .hero-panel{
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:var(--radius);
+    padding:20px 20px 16px;
+    backdrop-filter:blur(2px);
+  }
+  .hero-panel h3{
+    margin:0 0 12px;
+    font-size:15px;
+    color:#fff;
+    letter-spacing:.5px;
+    border-left:3px solid var(--amber);
+    padding-left:9px;
+  }
+  .hero-panel ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    font-size:14px;
+  }
+  .hero-panel li{
+    padding:9px 0;
+    border-bottom:1px dashed rgba(255,255,255,.2);
+    color:#dbeaf8;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .hero-panel li:last-child{border-bottom:0;}
+  .hero-panel li b{color:#fff;font-weight:600;}
+  .hero-panel li span{color:#a9c8e4;font-size:13px;flex:0 0 auto;}
+
+  /* ---------- 通用区块 ---------- */
+  main{display:block;}
+  section.block{
+    padding:46px 0;
+  }
+  section.block.alt{
+    background:var(--sky-light);
+  }
+  .sec-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:24px;
+  }
+  .sec-head h2{
+    font-size:23px;
+    margin:0;
+    letter-spacing:.5px;
+    position:relative;
+    padding-left:14px;
+  }
+  .sec-head h2::before{
+    content:"";
+    position:absolute;
+    left:0;top:6px;bottom:6px;
+    width:5px;
+    border-radius:3px;
+    background:linear-gradient(180deg,var(--sky-blue),var(--sky-deep));
+  }
+  .sec-head p{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:14px;
+    max-width:640px;
+  }
+
+  /* ---------- 分类 ---------- */
+  .cat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .cat-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+    transition:.2s;
+  }
+  .cat-card:hover{
+    box-shadow:var(--shadow);
+    transform:translateY(-3px);
+    border-color:#b9d3ea;
+  }
+  .cat-card .ico{
+    width:40px;height:40px;
+    border-radius:9px;
+    background:var(--sky-light);
+    color:var(--sky-mid);
+    display:flex;align-items:center;justify-content:center;
+    font-size:19px;
+    margin-bottom:12px;
+  }
+  .cat-card h3{
+    margin:0 0 8px;
+    font-size:16.5px;
+  }
+  .cat-card p{
+    margin:0;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- 推荐列表 ---------- */
+  .rec-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+  }
+  .rec-item{
+    display:flex;
+    gap:15px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px;
+  }
+  .rec-thumb{
+    flex:0 0 84px;
+    height:84px;
+    border-radius:9px;
+    background:linear-gradient(140deg,#134074,#2f8ad0);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+  }
+  .rec-body h3{
+    margin:0 0 6px;
+    font-size:16px;
+  }
+  .rec-body p{
+    margin:0 0 8px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+  .meta{
+    font-size:12.5px;
+    color:#7a8b9b;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  /* ---------- 玩法步骤 ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    counter-reset:step;
+  }
+  .step{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 18px;
+    position:relative;
+  }
+  .step::before{
+    counter-increment:step;
+    content:counter(step,decimal-leading-zero);
+    font-size:26px;
+    font-weight:800;
+    color:#cfe2f3;
+    display:block;
+    line-height:1;
+    margin-bottom:10px;
+    letter-spacing:1px;
+  }
+  .step h3{margin:0 0 7px;font-size:15.5px;}
+  .step p{margin:0;font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- 指南正文 ---------- */
+  .guide-grid{
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:32px;
+    align-items:start;
+  }
+  .article-body h3{
+    font-size:17.5px;
+    margin:26px 0 10px;
+  }
+  .article-body h3:first-child{margin-top:0;}
+  .article-body p{
+    margin:0 0 13px;
+    font-size:15px;
+    color:#2c3b48;
+  }
+  .article-body ul{
+    margin:0 0 14px;
+    padding-left:20px;
+    font-size:15px;
+    color:#2c3b48;
+  }
+  .article-body li{margin-bottom:7px;}
+
+  aside.side-box{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+    margin-bottom:20px;
+  }
+  aside.side-box h3{
+    margin:0 0 14px;
+    font-size:16px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  aside.side-box ol{
+    margin:0;
+    padding-left:20px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  aside.side-box ol li{margin-bottom:10px;}
+  aside.side-box ol li b{color:var(--ink);display:block;font-size:14.5px;}
+
+  .tip-box{
+    background:linear-gradient(135deg,#134074,#1d6fb8);
+    color:#e8f2fb;
+    border-radius:var(--radius);
+    padding:20px;
+  }
+  .tip-box h3{
+    margin:0 0 10px;
+    color:#fff;
+    font-size:16px;
+    border-bottom:1px solid rgba(255,255,255,.25);
+    padding-bottom:10px;
+  }
+  .tip-box ul{
+    margin:0;
+    padding-left:18px;
+    font-size:13.8px;
+  }
+  .tip-box li{margin-bottom:8px;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{
+    max-width:900px;
+    margin:0 auto;
+  }
+  .faq-item{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    margin-bottom:12px;
+    overflow:hidden;
+  }
+  .faq-q{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:0;
+    padding:16px 20px;
+    font-size:15.5px;
+    font-weight:600;
+    color:var(--ink);
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    font-family:inherit;
+  }
+  .faq-q:hover{background:#f6fafd;}
+  .faq-q .arrow{
+    flex:0 0 auto;
+    color:var(--sky-blue);
+    font-size:13px;
+    transition:transform .2s;
+  }
+  .faq-item.open .faq-q .arrow{transform:rotate(180deg);}
+  .faq-a{
+    display:none;
+    padding:0 20px 18px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    border-top:1px solid var(--line);
+    padding-top:14px;
+  }
+  .faq-item.open .faq-a{display:block;}
+
+  /* ---------- 页脚 ---------- */
+  footer.site-foot{
+    background:var(--sky-deep);
+    color:#a9c4dd;
+    padding:40px 0 22px;
+    font-size:14px;
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:26px;
+    padding-bottom:26px;
+    border-bottom:1px solid rgba(255,255,255,.14);
+  }
+  .foot-grid h4{
+    color:#fff;
+    font-size:15px;
+    margin:0 0 12px;
+  }
+  .foot-grid p{margin:0 0 10px;line-height:1.7;font-size:13.5px;}
+  .foot-grid ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    font-size:13.5px;
+  }
+  .foot-grid ul li{margin-bottom:8px;}
+  .foot-grid ul a{color:#a9c4dd;}
+  .foot-grid ul a:hover{color:#fff;}
+  .foot-bottom{
+    padding-top:18px;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    font-size:13px;
+    color:#8aa8c6;
+  }
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:repeat(2,1fr);}
+    .guide-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:680px){
+    body{font-size:15.5px;}
+    .hero h1{font-size:24px;}
+    .head-search input{width:130px;}
+    .cat-grid{grid-template-columns:1fr;}
+    .rec-list{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .sec-head h2{font-size:20px;}
+    .brand-text small{display:none;}
+    .foot-grid{grid-template-columns:1fr;}
+    section.block{padding:34px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>客机游戏专题站 · 民航飞行模拟内容整理</span>
+    <nav>
+      <a href="#categories">游戏分类</a>
+      <a href="#recommend">推荐方向</a>
+      <a href="#guide">上手指南</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <div class="brand-row">
+      <div class="brand">
+        <div class="brand-mark">✈</div>
+        <div class="brand-text">
+          <b>客机游戏</b>
+          <small>民航飞行模拟 · 客机驾驶与航线运营内容指南</small>
+        </div>
+      </div>
+      <form class="head-search" onsubmit="return false;">
+        <input type="text" placeholder="搜索：客机模拟 / 航线运营 / 驾驶舱">
+        <button type="button">搜索</button>
+      </form>
+    </div>
+
+    <nav class="mainnav">
+      <ul>
+        <li><a href="#intro" class="active">专题首页</a></li>
+        <li><a href="#categories">游戏分类</a></li>
+        <li><a href="#recommend">推荐方向</a></li>
+        <li><a href="#guide">上手指南</a></li>
+        <li><a href="#equipment">设备与配置</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>客机游戏：从驾驶舱操作到航线运营的<em>完整入门思路</em></h1>
+      <p class="lead">
+        客机游戏通常指以民航客机为操作对象、围绕起飞、巡航、进近与落地等真实飞行环节展开的模拟类游戏。
+        它既包含追求操作真实感的飞行模拟，也包含偏经营与调度方向的航线运营玩法。
+        本页把这两类内容放在一起梳理，帮助你先弄清楚"想玩什么"，再决定"从哪里开始"。
+      </p>
+      <div class="hero-tags">
+        <span>飞行模拟</span>
+        <span>客机驾驶</span>
+        <span>航线运营</span>
+        <span>驾驶舱操作</span>
+        <span>航空入门</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#guide" class="btn btn-primary">查看上手指南</a>
+        <a href="#categories" class="btn btn-ghost">了解游戏分类</a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <h3>先想清楚这三个问题</h3>
+      <ul>
+        <li><b>你想开飞机，还是想管航线？</b><span>玩法方向</span></li>
+        <li><b>你能接受多高的操作门槛？</b><span>难度预期</span></li>
+        <li><b>你用什么设备玩？</b><span>硬件条件</span></li>
+      </ul>
+      <p style="margin:14px 0 0;font-size:13.5px;color:#c2d9ee;">
+        这三个问题基本决定了你适合哪一类客机游戏，比直接看排行榜更有效。
+      </p>
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <section class="block" id="intro">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>客机游戏到底在玩什么</h2>
+        <p>先建立基本认知，再谈选择。客机游戏的乐趣来源和普通动作、竞速类游戏差别较大。</p>
+      </div>
+      <div class="guide-grid">
+        <div class="article-body">
+          <h3>核心乐趣：把一件复杂的事做对</h3>
+          <p>
+            客机游戏的主要成就感，来自"按正确流程完成一次飞行"。从冷舱启动、设置飞行管理计算机、
+            申请放行、滑行、起飞、爬升到巡航高度，再到下降、进近、落地和关车，
+            每个环节都有相对固定的操作逻辑。玩家获得的反馈，是流程被正确执行后的顺畅感，而不是爽快的打击感。
+          </p>
+          <h3>两类主流玩法方向</h3>
+          <p>
+            第一类是<strong>飞行操作向</strong>：重点在驾驶舱内的开关、仪表、自动驾驶与手动操纵，
+            对气动、航电和程序的还原程度要求较高。
+            第二类是<strong>运营管理向</strong>：重点在航线规划、机队安排、航班调度和成本收益，
+            飞行过程往往被简化甚至跳过。
+          </p>
+          <p>
+            还有一部分作品介于两者之间，既要求你实际飞一段航程，又需要你经营一家航空公司。
+            这类混合玩法对时间投入的要求通常更高。
+          </p>
+          <h3>它和"空战游戏"的区别</h3>
+          <p>
+            客机游戏一般不强调机动、对抗和武器系统，而是强调稳定性、程序性和规范性。
+            即使是偏娱乐化的作品，也大多保留了"起飞—巡航—落地"这一基本结构，
+            这也是它与战斗机题材游戏最明显的分界线。
+          </p>
+        </div>
+
+        <aside>
+          <div class="side-box">
+            <h3>新手最容易踩的三个坑</h3>
+            <ol>
+              <li><b>一上来就选最高拟真度</b>直接面对大量仪表和检查单，容易在半小时内放弃。</li>
+              <li><b>忽略教程与检查单</b>跳过基础流程，后面每一步都会卡住。</li>
+              <li><b>只看画面选游戏</b>画面好不等于操作友好，两者并不总是正相关。</li>
+            </ol>
+          </div>
+          <div class="tip-box">
+            <h3>一条实用建议</h3>
+            <ul>
+              <li>先用简化模式完整飞完一次短途航线，再逐步关闭辅助。</li>
+              <li>固定使用同一款机型练习，减少不必要的记忆负担。</li>
+              <li>把一次飞行拆成"地面、起飞、巡航、进近"四段来练。</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="categories">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>客机游戏的常见分类</h2>
+        <p>按玩法侧重点划分，方便你快速定位自己感兴趣的方向。</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="ico">🛫</div>
+          <h3>高拟真飞行模拟</h3>
+          <p>强调航电系统、检查单流程与气动表现，操作复杂但还原度高，适合愿意投入时间学习的玩家。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🎮</div>
+          <h3>轻量休闲飞行</h3>
+          <p>简化操作步骤，保留起飞与降落的核心体验，上手快，适合碎片时间游玩或作为入门过渡。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">📋</div>
+          <h3>航线运营经营</h3>
+          <p>以航空公司经营为主线，涉及航线开辟、机队配置与成本管理，飞行环节多被简化处理。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🧭</div>
+          <h3>联机协作飞行</h3>
+          <p>多人分工扮演机长、副驾或管制角色，强调沟通与配合，对流程熟悉度有一定要求。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">📱</div>
+          <h3>移动端客机游戏</h3>
+          <p>以触屏操作为主，节奏偏快，通常弱化仪表细节，突出起降与航线任务的即时反馈。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🛠️</div>
+          <h3>模组与拓展内容</h3>
+          <p>通过插件补充机型、机场与地景，能显著扩展内容量，但需要留意来源与兼容性。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="recommend">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>按需求挑选方向</h2>
+        <p>不直接给排名，而是按你的实际需求给出选择思路，避免盲目跟风。</p>
+      </div>
+      <div class="rec-list">
+        <article class="rec-item">
+          <div class="rec-thumb">①</div>
+          <div class="rec-body">
+            <h3>想体验真实驾驶舱</h3>
+            <p>优先考虑航电还原度高、有完整检查单体系的作品，并做好前几小时都在学习的心理准备。</p>
+            <div class="meta"><span>难度：偏高</span><span>设备：建议摇杆</span></div>
+          </div>
+        </article>
+        <article class="rec-item">
+          <div class="rec-thumb">②</div>
+          <div class="rec-body">
+            <h3>只想轻松飞一段</h3>
+            <p>选择带自动辅助、任务引导清晰的作品，重点体验起降过程，不必纠结每个开关的作用。</p>
+            <div class="meta"><span>难度：偏低</span><span>设备：键鼠/手柄</span></div>
+          </div>
+        </article>
+        <article class="rec-item">
+          <div class="rec-thumb">③</div>
+          <div class="rec-body">
+            <h3>更喜欢经营与规划</h3>
+            <p>关注航线运营类作品，考察其经济系统是否合理、机队与航班安排是否有足够决策空间。</p>
+            <div class="meta"><span>难度：中等</span><span>设备：键鼠</span></div>
+          </div>
+        </article>
+        <article class="rec-item">
+          <div class="rec-thumb">④</div>
+          <div class="rec-body">
+            <h3>想和朋友一起玩</h3>
+            <p>选择支持多人协作或联机管制的作品，提前约定好各自分工，体验会顺畅很多。</p>
+            <div class="meta"><span>难度：中等</span><span>设备：麦克风</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>客机游戏上手的四个阶段</h2>
+        <p>把学习过程拆开，比一次性啃完整套流程更容易坚持下来。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>熟悉界面与视角</h3>
+          <p>先搞清楚主要仪表位置、视角切换方式和基本按键，不要在没看清界面的情况下起飞。</p>
+        </div>
+        <div class="step">
+          <h3>完成一次简单起降</h3>
+          <p>选择短跑道、天气良好的场景，用默认设置完成一次起飞和落地，建立整体节奏感。</p>
+        </div>
+        <div class="step">
+          <h3>学习标准流程</h3>
+          <p>逐步加入检查单、自动驾驶和进近程序，把每个环节做规范，而不是追求速度。</p>
+        </div>
+        <div class="step">
+          <h3>挑战真实场景</h3>
+          <p>尝试复杂天气、繁忙机场或长航线，检验前面阶段的积累是否扎实。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="equipment">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>设备、配置与操作习惯</h2>
+        <p>客机游戏对设备的要求跨度很大，按需投入即可，不必一步到位。</p>
+      </div>
+      <div class="guide-grid">
+        <div class="article-body">
+          <h3>输入设备怎么选</h3>
+          <ul>
+            <li><strong>键鼠</strong>：能玩，但精细操纵较难，适合休闲向或运营向作品。</li>
+            <li><strong>手柄</strong>：比键鼠更直观，适合轻量飞行模拟，摇杆行程有限。</li>
+            <li><strong>飞行摇杆</strong>：高拟真模拟的常见选择，能明显提升操纵手感。</li>
+            <li><strong>油门与脚舵</strong>：属于进阶配置，通常在确定长期投入后再考虑。</li>
+          </ul>
+          <h3>画面与性能的取舍</h3>
+          <p>
+            高拟真飞行模拟往往对处理器和显卡都有一定要求，尤其是加载精细地景和复杂机模时。
+            如果设备性能有限，可以适当降低地景细节与阴影质量，优先保证帧率稳定，
+            因为画面卡顿会直接影响操纵判断。
+          </p>
+          <h3>养成记录习惯</h3>
+          <p>
+            建议每次飞行后简单记录机型、航线、天气和出现的问题。
+            坚持一段时间后，你会更容易发现自己在哪个环节反复出错，这比盲目增加飞行次数更有效。
+          </p>
+        </div>
+        <aside>
+          <div class="side-box">
+            <h3>操作习惯小提示</h3>
+            <ol>
+              <li><b>固定按键布局</b>不同作品之间尽量保持一致，减少切换成本。</li>
+              <li><b>先慢后快</b>起飞和进近阶段宁可慢一点，也不要抢操作。</li>
+              <li><b>善用暂停</b>不确定下一步时暂停查看资料，比硬飞更省时间。</li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <p>整理玩家在接触客机游戏时较常提出的疑问。</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">完全没有飞行知识，能玩客机游戏吗？<span class="arrow">▼</span></button>
+          <div class="faq-a">
+            可以。建议从操作简化的作品入手，先熟悉起飞、巡航、下降、落地这条主线，
+            再逐步了解仪表含义和标准程序。飞行知识可以在玩的过程中慢慢补充，不必提前学完。
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">客机游戏一定要用摇杆吗？<span class="arrow">▼</span></button>
+          <div class="faq-a">
+            不一定。休闲向和运营向作品用键鼠或手柄完全可以胜任。只有在追求高拟真操纵手感时，
+            摇杆的优势才会明显体现。是否购买，取决于你打算长期投入的程度。
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">一次完整飞行大概要多久？<span class="arrow">▼</span></button>
+          <div class="faq-a">
+            视航线和作品而定。短途航线可能十几分钟到半小时，长途航线则会持续数小时。
+            多数作品支持时间加速，也可以在中途保存，玩家可以按自己的时间安排选择航程长度。
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">为什么我总是降落不稳？<span class="arrow">▼</span></button>
+          <div class="faq-a">
+            降落不稳通常和进近速度、下降率以及最后的姿态调整有关。
+            建议先在天气良好、跑道较长的机场反复练习同一套进近程序，
+            把速度与下降节奏固定下来，再逐步增加难度。
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">模组和插件值得安装吗？<span class="arrow">▼</span></button>
+          <div class="faq-a">
+            如果基础内容已经玩得比较熟，模组可以明显扩展机型、机场和地景的选择范围。
+            但要注意来源可靠性与版本兼容性，安装前最好备份原有配置，避免影响正常游玩。
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">运营类和飞行类应该先玩哪个？<span class="arrow">▼</span></button>
+          <div class="faq-a">
+            如果你更在意"亲手把飞机飞起来"，建议先玩飞行操作向；
+            如果你更享受规划和调度，运营类会更对胃口。
+            两者并不冲突，很多玩家会在熟悉飞行流程后，再去尝试运营玩法。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>关于本站</h4>
+        <p>
+          客机游戏专题站，整理民航飞行模拟、客机驾驶与航线运营类游戏的方向性内容，
+          帮助玩家理清玩法分类与入门路径。
+        </p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#categories">游戏分类</a></li>
+          <li><a href="#recommend">推荐方向</a></li>
+          <li><a href="#guide">上手指南</a></li>
+          <li><a href="#equipment">设备与配置</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>玩法方向</h4>
+        <ul>
+          <li><a href="#categories">高拟真飞行模拟</a></li>
+          <li><a href="#categories">轻量休闲飞行</a></li>
+          <li><a href="#categories">航线运营经营</a></li>
+          <li><a href="#categories">联机协作飞行</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>帮助信息</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#guide">新手学习顺序</a></li>
+          <li><a href="#equipment">设备选择建议</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>客机游戏专题 · 内容仅供学习与参考</span>
+      <span>页面内容为方向性整理，不构成任何购买建议</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var items = document.querySelectorAll('.faq-item');
+    for (var i = 0; i < items.length; i++) {
+      (function (item) {
+        var btn = item.querySelector('.faq-q');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var isOpen = item.classList.contains('open');
+          for (var j = 0; j < items.length; j++) {
+            items[j].classList.remove('open');
+          }
+          if (!isOpen) {
+            item.classList.add('open');
+          }
+        });
+      })(items[i]);
+    }
+
+    var navLinks = document.querySelectorAll('nav.mainnav a');
+    for (var k = 0; k < navLinks.length; k++) {
+      navLinks[k].addEventListener('click', function () {
+        for (var m = 0; m < navLinks.length; m++) {
+          navLinks[m].classList.remove('active');
+        }
+        this.classList.add('active');
+      });
+    }
+  })();
+</script>
+
+</body>
+  </html>
