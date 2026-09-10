@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蓝色导航发布页 - 稳定入口与实用网址导航指引</title>
+<meta name="description" content="蓝色导航发布页提供网址导航入口的发布与获取说明，介绍如何找到最新可用地址、识别安全页面、管理常用书签，并解答访问与收藏中的常见问题。">
+<meta name="keywords" content="蓝色导航发布页,蓝色导航,导航发布页,网址导航入口,发布页获取,书签导航">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --blue-900:#0b2545;
+  --blue-700:#12467e;
+  --blue-600:#1565c0;
+  --blue-500:#1e88e5;
+  --blue-200:#bbdefb;
+  --blue-100:#e3f2fd;
+  --blue-50:#f4f9ff;
+  --ink:#1c2733;
+  --ink-soft:#4a5a6a;
+  --line:#d8e6f5;
+  --white:#ffffff;
+  --radius:14px;
+  --shadow:0 6px 24px rgba(18,70,126,.10);
+  --shadow-sm:0 2px 10px rgba(18,70,126,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Helvetica Neue",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--blue-50);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--blue-600);text-decoration:none;}
+a:hover{color:var(--blue-500);}
+img{max-width:100%;display:block;}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 20px;}
+
+/* 顶部条 */
+.topbar{
+  background:var(--blue-900);
+  color:#cfe3f7;
+  font-size:13px;
+}
+.topbar .wrap{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;min-height:40px;flex-wrap:wrap;
+}
+.topbar span.dot{
+  display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:#4caf50;margin-right:6px;vertical-align:middle;
+}
+.topbar-right{color:#9fc0e0;}
+
+/* 页眉 */
+header.site-head{
+  background:linear-gradient(135deg,var(--blue-700) 0%,var(--blue-600) 55%,var(--blue-500) 100%);
+  color:#fff;
+  padding:26px 0 30px;
+  position:relative;
+  overflow:hidden;
+}
+header.site-head::after{
+  content:"";
+  position:absolute;right:-80px;top:-80px;
+  width:320px;height:320px;border-radius:50%;
+  background:rgba(255,255,255,.08);
+}
+header.site-head::before{
+  content:"";
+  position:absolute;left:-60px;bottom:-120px;
+  width:260px;height:260px;border-radius:50%;
+  background:rgba(255,255,255,.06);
+}
+.head-inner{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand-mark{
+  width:52px;height:52px;border-radius:14px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;font-weight:700;letter-spacing:1px;
+}
+.brand-text h1{
+  font-size:22px;font-weight:700;letter-spacing:.5px;line-height:1.3;
+}
+.brand-text p{
+  font-size:13px;color:#d5e8fb;margin-top:2px;
+}
+.head-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:10px 20px;border-radius:10px;
+  font-size:14px;font-weight:600;cursor:pointer;border:1px solid transparent;
+  transition:.2s ease;
+}
+.btn-light{background:#fff;color:var(--blue-700);}
+.btn-light:hover{background:var(--blue-100);color:var(--blue-900);}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.45);}
+.btn-ghost:hover{background:rgba(255,255,255,.22);color:#fff;}
+
+/* 导航 */
+nav.main-nav{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  position:sticky;top:0;z-index:20;
+}
+nav.main-nav .wrap{
+  display:flex;gap:6px;overflow-x:auto;padding:0 20px;
+}
+nav.main-nav a{
+  display:block;padding:15px 16px;
+  font-size:15px;color:var(--ink-soft);font-weight:500;
+  white-space:nowrap;border-bottom:3px solid transparent;
+  transition:.2s;
+}
+nav.main-nav a:hover,nav.main-nav a.active{
+  color:var(--blue-600);border-bottom-color:var(--blue-500);
+}
+
+/* 主区域 */
+main{padding:34px 0 10px;}
+section{margin-bottom:40px;}
+.sec-title{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:14px;margin-bottom:18px;flex-wrap:wrap;
+}
+.sec-title h2{
+  font-size:21px;color:var(--blue-900);font-weight:700;
+  position:relative;padding-left:14px;line-height:1.4;
+}
+.sec-title h2::before{
+  content:"";position:absolute;left:0;top:4px;bottom:4px;
+  width:5px;border-radius:3px;
+  background:linear-gradient(180deg,var(--blue-500),var(--blue-700));
+}
+.sec-title .hint{font-size:13px;color:var(--ink-soft);}
+
+/* 首屏说明 */
+.hero-panel{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:28px 26px;
+  display:grid;grid-template-columns:1.55fr 1fr;gap:26px;
+}
+.hero-panel h2{
+  font-size:20px;color:var(--blue-900);margin-bottom:12px;
+}
+.hero-panel p{color:var(--ink-soft);margin-bottom:12px;font-size:15px;}
+.hero-panel p strong{color:var(--blue-700);}
+.hero-list{list-style:none;margin-top:6px;}
+.hero-list li{
+  position:relative;padding-left:20px;margin-bottom:8px;
+  font-size:14.5px;color:var(--ink-soft);
+}
+.hero-list li::before{
+  content:"";position:absolute;left:2px;top:9px;
+  width:8px;height:8px;border-radius:2px;
+  background:var(--blue-500);
+}
+.hero-side{
+  background:var(--blue-100);border-radius:12px;padding:20px;
+  border:1px dashed var(--blue-200);
+}
+.hero-side h3{
+  font-size:16px;color:var(--blue-900);margin-bottom:12px;
+}
+.hero-side ol{
+  list-style:none;counter-reset:step;
+}
+.hero-side ol li{
+  counter-increment:step;
+  position:relative;padding-left:34px;margin-bottom:12px;
+  font-size:14px;color:var(--ink-soft);
+}
+.hero-side ol li::before{
+  content:counter(step);
+  position:absolute;left:0;top:1px;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--blue-600);color:#fff;
+  font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* 卡片网格 */
+.grid{display:grid;gap:18px;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;box-shadow:var(--shadow-sm);
+  transition:.22s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--blue-200);}
+.card h3{
+  font-size:16.5px;color:var(--blue-900);margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.card h3 .ico{
+  width:30px;height:30px;border-radius:9px;flex:0 0 30px;
+  background:var(--blue-100);color:var(--blue-700);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:700;
+}
+.card p{font-size:14.5px;color:var(--ink-soft);}
+.card ul{margin-top:10px;list-style:none;}
+.card ul li{
+  font-size:14px;color:var(--ink-soft);
+  padding-left:16px;position:relative;margin-bottom:6px;
+}
+.card ul li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:6px;height:6px;border-radius:50%;background:var(--blue-400,#42a5f5);
+}
+
+/* 入口清单 */
+.entry-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.entry{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px;display:flex;align-items:flex-start;gap:14px;
+  box-shadow:var(--shadow-sm);transition:.2s;
+}
+.entry:hover{border-color:var(--blue-500);box-shadow:var(--shadow);}
+.entry-no{
+  flex:0 0 40px;height:40px;border-radius:10px;
+  background:linear-gradient(135deg,var(--blue-600),var(--blue-500));
+  color:#fff;font-weight:700;font-size:15px;
+  display:flex;align-items:center;justify-content:center;
+}
+.entry-body h3{font-size:15.5px;color:var(--blue-900);margin-bottom:4px;}
+.entry-body p{font-size:13.5px;color:var(--ink-soft);}
+
+/* 表格 */
+.table-box{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow-sm);
+}
+table{width:100%;border-collapse:collapse;font-size:14.5px;}
+thead th{
+  background:var(--blue-700);color:#fff;text-align:left;
+  padding:13px 16px;font-weight:600;font-size:14px;
+}
+tbody td{
+  padding:13px 16px;border-bottom:1px solid var(--line);
+  color:var(--ink-soft);vertical-align:top;
+}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:nth-child(even){background:var(--blue-50);}
+tbody td:first-child{color:var(--blue-900);font-weight:600;}
+
+/* 提示条 */
+.notice{
+  background:#fff8e6;border:1px solid #f3dfa8;border-left:5px solid #e6a817;
+  border-radius:10px;padding:16px 20px;font-size:14.5px;color:#7a5a10;
+}
+.notice strong{color:#8a5a00;}
+
+/* FAQ */
+.faq-item{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow-sm);
+}
+.faq-q{
+  width:100%;text-align:left;background:none;border:none;cursor:pointer;
+  padding:17px 20px;font-size:15.5px;font-weight:600;color:var(--blue-900);
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  font-family:inherit;
+}
+.faq-q .arrow{
+  flex:0 0 auto;width:22px;height:22px;border-radius:50%;
+  background:var(--blue-100);color:var(--blue-700);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;transition:.25s;
+}
+.faq-item.open .faq-q .arrow{transform:rotate(45deg);}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .3s ease;
+}
+.faq-a p{
+  padding:0 20px 18px;font-size:14.5px;color:var(--ink-soft);
+}
+
+/* 侧栏 + 主体双栏 */
+.two-col{display:grid;grid-template-columns:2fr 1fr;gap:26px;align-items:start;}
+.side-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--shadow-sm);margin-bottom:18px;
+}
+.side-card h3{
+  font-size:16px;color:var(--blue-900);margin-bottom:12px;
+  padding-bottom:10px;border-bottom:1px dashed var(--line);
+}
+.side-card ul{list-style:none;}
+.side-card ul li{
+  font-size:14px;color:var(--ink-soft);
+  padding:8px 0 8px 18px;position:relative;
+  border-bottom:1px dashed #eef4fb;
+}
+.side-card ul li:last-child{border-bottom:none;}
+.side-card ul li::before{
+  content:"›";position:absolute;left:2px;top:7px;
+  color:var(--blue-500);font-weight:700;
+}
+.side-card p{font-size:14px;color:var(--ink-soft);}
+
+/* 页脚 */
+footer.site-foot{
+  background:var(--blue-900);color:#a9c6e2;
+  padding:38px 0 22px;margin-top:20px;font-size:14px;
+}
+.foot-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:26px;
+  padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.12);
+}
+.foot-grid h4{
+  color:#fff;font-size:15px;margin-bottom:12px;font-weight:600;
+}
+.foot-grid p{color:#9dbcd9;font-size:13.5px;line-height:1.8;}
+.foot-grid ul{list-style:none;}
+.foot-grid ul li{margin-bottom:8px;}
+.foot-grid ul li a{color:#a9c6e2;font-size:13.5px;}
+.foot-grid ul li a:hover{color:#fff;}
+.foot-bottom{
+  padding-top:18px;text-align:center;font-size:13px;color:#7fa0c0;
+}
+
+/* 响应式 */
+@media (max-width:960px){
+  .hero-panel{grid-template-columns:1fr;}
+  .grid-3{grid-template-columns:repeat(2,1fr);}
+  .two-col{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  body{font-size:15px;}
+  .grid-3,.grid-2,.entry-list{grid-template-columns:1fr;}
+  .brand-text h1{font-size:19px;}
+  .head-actions{width:100%;}
+  .head-actions .btn{flex:1;text-align:center;}
+  .hero-panel{padding:20px 18px;}
+  .foot-grid{grid-template-columns:1fr;gap:20px;}
+  thead th,tbody td{padding:11px 12px;font-size:13.5px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="dot"></span>蓝色导航发布页 · 入口信息持续整理中</div>
+    <div class="topbar-right">请以本站公布的说明为准，理性收藏与访问</div>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <div class="brand">
+      <div class="brand-mark">蓝</div>
+      <div class="brand-text">
+        <h1>蓝色导航发布页</h1>
+        <p>网址导航入口发布 · 可用地址获取 · 收藏与安全指引</p>
+      </div>
+    </div>
+    <div class="head-actions">
+      <a class="btn btn-light" href="#entries">查看入口说明</a>
+      <a class="btn btn-ghost" href="#faq">常见问题</a>
+    </div>
+  </div>
+</header>
+
+<nav class="main-nav">
+  <div class="wrap">
+    <a href="#intro" class="active">发布页说明</a>
+    <a href="#entries">入口获取</a>
+    <a href="#find">查找方法</a>
+    <a href="#safe">安全识别</a>
+    <a href="#manage">书签管理</a>
+    <a href="#faq">常见问题</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- 首屏 -->
+  <section id="intro">
+    <div class="hero-panel">
+      <div>
+        <h2>蓝色导航发布页是做什么的</h2>
+        <p>“蓝色导航发布页”通常指一个用于<strong>集中公布网址导航入口地址</strong>的说明页面。当主站地址发生变动、被临时调整，或用户手上的旧链接无法打开时，这类发布页会承担“指路牌”的作用：告诉访问者当前可用的入口在哪、应该怎样保存、遇到打不开的情况如何处理。</p>
+        <p>它本身一般不是导航内容的集合，而是<strong>入口信息的说明与索引</strong>。理解这一点，就能明白为什么发布页的重点是“地址是否有效、来源是否可靠”，而不是页面有多花哨。</p>
+        <ul class="hero-list">
+          <li>面向找不到入口、收藏失效的老用户；</li>
+          <li>面向第一次接触、想弄清发布页含义的新访客；</li>
+          <li>帮助用户建立“先核对来源，再保存地址”的习惯。</li>
+        </ul>
+      </div>
+      <aside class="hero-side">
+        <h3>获取入口的四步流程</h3>
+        <ol>
+          <li>确认自己访问的是发布页本身，而不是仿冒页面；</li>
+          <li>阅读页面上的入口说明，核对域名与名称是否一致；</li>
+          <li>将确认后的地址加入浏览器书签，并做好备注；</li>
+          <li>定期回访发布页，更新已失效的收藏。</li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 入口获取 -->
+  <section id="entries">
+    <div class="sec-title">
+      <h2>入口获取方式与适用场景</h2>
+      <span class="hint">按使用习惯选择合适的一种</span>
+    </div>
+    <div class="entry-list">
+      <div class="entry">
+        <div class="entry-no">01</div>
+        <div class="entry-body">
+          <h3>直接收藏发布页</h3>
+          <p>把发布页本身加入书签，后续入口变化时回到这里查看最新说明，是最省心的方式。</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-no">02</div>
+        <div class="entry-body">
+          <h3>记录多个备用地址</h3>
+          <p>同时保存两到三个来源一致的地址，避免单一链接失效后完全找不到方向。</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-no">03</div>
+        <div class="entry-body">
+          <h3>使用浏览器同步书签</h3>
+          <p>登录浏览器账号开启书签同步，换设备或重装系统后仍能找回已保存的入口。</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-no">04</div>
+        <div class="entry-body">
+          <h3>通过搜索核对名称</h3>
+          <p>搜索时优先查看名称、描述是否与已知信息一致，不要只看排在前面的结果。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 查找方法 + 侧栏 -->
+  <section id="find">
+    <div class="sec-title">
+      <h2>找不到入口时的排查思路</h2>
+      <span class="hint">从简单到复杂逐项检查</span>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="table-box">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:22%">现象</th>
+                <th style="width:38%">可能原因</th>
+                <th>建议处理</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>页面打不开</td>
+                <td>地址已调整、网络波动或本地缓存异常</td>
+                <td>先刷新并切换网络，再回到发布页核对最新说明</td>
+              </tr>
+              <tr>
+                <td>打开后内容不符</td>
+                <td>访问到了名称相似的仿冒页面</td>
+                <td>立即关闭，回到发布页重新核对域名与名称</td>
+              </tr>
+              <tr>
+                <td>书签点击无反应</td>
+                <td>旧链接失效，书签未及时更新</td>
+                <td>删除失效书签，重新保存发布页公布的地址</td>
+              </tr>
+              <tr>
+                <td>搜索结果很杂乱</td>
+                <td>存在大量转载页、聚合页干扰</td>
+                <td>以发布页说明为准，不轻信来源不明的链接</td>
+              </tr>
+              <tr>
+                <td>手机端显示异常</td>
+                <td>浏览器版本过旧或页面缩放设置异常</td>
+                <td>升级浏览器，恢复默认缩放后重试</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <aside>
+        <div class="side-card">
+          <h3>排查顺序建议</h3>
+          <ul>
+            <li>先确认网络是否正常</li>
+            <li>再确认地址是否来自发布页</li>
+            <li>然后清理浏览器缓存重试</li>
+            <li>最后更换设备或浏览器验证</li>
+          </ul>
+        </div>
+        <div class="side-card">
+          <h3>不建议的做法</h3>
+          <ul>
+            <li>在来路不明的页面输入账号信息</li>
+            <li>下载所谓“专用客户端”或插件</li>
+            <li>轻信带有夸张承诺的跳转链接</li>
+            <li>把发布页地址随意转发到公开群组</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 安全识别 -->
+  <section id="safe">
+    <div class="sec-title">
+      <h2>如何判断入口页面是否可靠</h2>
+      <span class="hint">看来源、看细节、看行为</span>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <h3><span class="ico">源</span>核对来源</h3>
+        <p>优先使用自己长期保存的发布页地址，而不是临时搜索到的链接。来源一致的多个地址互相印证，可信度更高。</p>
+        <ul>
+          <li>名称、说明文字是否前后一致</li>
+          <li>是否与已知信息存在明显矛盾</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3><span class="ico">细</span>观察细节</h3>
+        <p>正规的发布页说明通常简洁、克制，重点放在地址与使用提示上，不会用夸张措辞催促点击。</p>
+        <ul>
+          <li>页面是否要求额外安装软件</li>
+          <li>是否频繁弹出无关窗口</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3><span class="ico">行</span>留意行为</h3>
+        <p>任何要求输入密码、支付信息或身份资料的页面都应提高警惕，正规入口一般不需要这些操作。</p>
+        <ul>
+          <li>出现异常跳转立即关闭</li>
+          <li>不向陌生页面提交个人信息</li>
+        </ul>
+      </article>
+    </div>
+    <div class="notice" style="margin-top:18px;">
+      <strong>提醒：</strong>发布页只承担入口信息的公布作用，不会要求你提供账号密码、验证码或任何支付信息。遇到此类要求，请直接关闭页面。
+    </div>
+  </section>
+
+  <!-- 书签管理 -->
+  <section id="manage">
+    <div class="sec-title">
+      <h2>把入口管理得更省心</h2>
+      <span class="hint">建立自己的地址清单</span>
+    </div>
+    <div class="grid grid-2">
+      <article class="card">
+        <h3><span class="ico">1</span>分类命名</h3>
+        <p>在书签栏中单独建立一个文件夹，命名清晰，例如“导航入口”。把发布页与常用入口分开存放，避免与其他收藏混在一起。</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico">2</span>定期检查</h3>
+        <p>每隔一段时间点开收藏，确认是否仍能正常打开。发现失效的条目及时清理，避免真正需要时才发现无法使用。</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico">3</span>多端同步</h3>
+        <p>开启浏览器或系统的书签同步功能，手机、平板和电脑之间保持一致，更换设备时不必重新寻找。</p>
+      </article>
+      <article class="card">
+        <h3><span class="ico">4</span>谨慎分享</h3>
+        <p>发布页地址适合自己保存，不建议在公开场合大范围传播。传播越广，被仿冒和干扰的可能性也越高。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="sec-title">
+      <h2>常见问题解答</h2>
+      <span class="hint">关于发布页的高频疑问</span>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button">蓝色导航发布页和导航站本身是一回事吗？<span class="arrow">+</span></button>
+      <div class="faq-a"><p>不完全是一回事。发布页主要用来公布入口地址和说明信息，导航站本身才是汇集各类网址的页面。发布页像是“指路牌”，导航站才是“目的地”，两者作用不同。</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button">为什么我保存的地址过一段时间就打不开了？<span class="arrow">+</span></button>
+      <div class="faq-a"><p>入口地址可能因运营调整、域名变更或网络环境变化而失效，这是比较常见的情况。建议同时保存发布页地址，入口变化时回到发布页查看最新说明，而不是只依赖单一链接。</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button">搜索出来的结果很多，应该相信哪一个？<span class="arrow">+</span></button>
+      <div class="faq-a"><p>不要只看搜索排名。优先选择名称、描述与你已知信息一致的结果，并核对页面内容是否克制、规范。来源不明、措辞夸张、频繁弹窗的页面建议直接跳过。</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button">发布页会要求我登录或付费吗？<span class="arrow">+</span></button>
+      <div class="faq-a"><p>正常情况下的发布页只提供入口说明，不会要求登录、付费或提交个人资料。如果遇到此类要求，应视为异常情况，立即停止操作并关闭页面。</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button">手机和电脑上的入口需要分开保存吗？<span class="arrow">+</span></button>
+      <div class="faq-a"><p>不需要分开记录，但建议使用支持多端同步的书签功能。这样在手机上添加的收藏，登录同一账号后电脑端也能看到，维护起来更省事。</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button">页面显示异常或者排版错乱怎么办？<span class="arrow">+</span></button>
+      <div class="faq-a"><p>可以先尝试刷新页面、清理浏览器缓存，或更换一个较新版本的浏览器。如果仍然异常，可能是网络加载不完整，切换网络环境后再试通常能改善。</p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>蓝色导航发布页</h4>
+        <p>本页用于说明网址导航入口的发布与获取方式，帮助用户建立核对来源、妥善保存、定期更新的使用习惯。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#intro">发布页说明</a></li>
+          <li><a href="#entries">入口获取</a></li>
+          <li><a href="#find">查找方法</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用建议</h4>
+        <ul>
+          <li><a href="#safe">安全识别要点</a></li>
+          <li><a href="#manage">书签管理方法</a></li>
+          <li><a href="#find">打不开排查</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>温馨提示</h4>
+        <p>请勿在来源不明的页面提交账号、验证码或支付信息。入口信息以发布页公布的说明为准。</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 蓝色导航发布页 · 入口信息说明页 &nbsp;|&nbsp; 内容仅供访问指引参考
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    var panel = item.querySelector('.faq-a');
+    if(!btn || !panel) return;
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(other){
+        other.classList.remove('open');
+        var p = other.querySelector('.faq-a');
+        if(p){ p.style.maxHeight = null; }
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  var navLinks = document.querySelectorAll('nav.main-nav a');
+  navLinks.forEach(function(link){
+    link.addEventListener('click', function(){
+      navLinks.forEach(function(l){ l.classList.remove('active'); });
+      link.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+    </html>
